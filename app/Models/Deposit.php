@@ -9,8 +9,18 @@ class Deposit extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    
-    function depositType(){
+
+    function depositType()
+    {
         return $this->belongsTo(DepositType::class);
     }
+    function interest()
+    {
+        return $this->belongsTo(Interest::class);
+    }
+    function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
 }

@@ -10,7 +10,8 @@ class EmployeeType extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    function employee(){
+    function employee()
+    {
         return $this->hasMany(Employee::class);
     }
 }

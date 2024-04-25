@@ -10,11 +10,17 @@ class Loan extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    
-    function loanType(){
+
+    function loanType()
+    {
         return $this->belongsTo(LoanType::class);
     }
-    function customer(){
+    function customer()
+    {
         return $this->belongsTo(Customer::class);
+    }
+    function loanProposal()
+    {
+        return $this->belongsTo(LoanProprosal::class);
     }
 }

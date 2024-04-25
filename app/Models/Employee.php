@@ -9,8 +9,9 @@ class Employee extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    
-    function employeeType(){
+
+    function employeeType()
+    {
         return $this->belongsTo(EmployeeType::class);
     }
 }

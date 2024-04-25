@@ -10,7 +10,12 @@ class LoanType extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    function loan(){
+    function loan()
+    {
         return $this->hasMany(Loan::class);
+    }
+    function loanProposal()
+    {
+        return $this->hasMany(LoanProprosal::class);
     }
 }

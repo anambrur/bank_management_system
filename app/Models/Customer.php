@@ -24,4 +24,19 @@ class Customer extends Model
     {
         return $this->hasMany(Loan::class);
     }
+
+    function deposit()
+    {
+        return $this->hasMany(Deposit::class);
+    }
+
+    function payment()
+    {
+        return $this->hasMany(Payment::class);
+    }
+    
+    function withdrawal()
+    {
+        return $this->hasMany(Withdrawal::class);
+    }
 }
