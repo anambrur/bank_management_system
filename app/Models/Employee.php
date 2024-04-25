@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Deposit extends Model
+class Employee extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
     
-    function depositType(){
-        return $this->belongsTo(DepositType::class);
+    function employeeType(){
+        return $this->belongsTo(EmployeeType::class);
     }
 }

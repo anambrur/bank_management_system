@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EmpolyeeType;
+use App\Models\EmployeeType;
 use Illuminate\Http\Request;
 
-class EmpolyeeTypeController extends Controller
+class EmployeeTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class EmpolyeeTypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(EmpolyeeType $empolyeeType)
+    public function show(EmployeeType $employeeType)
     {
         //
     }
@@ -42,7 +42,7 @@ class EmpolyeeTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(EmpolyeeType $empolyeeType)
+    public function edit(EmployeeType $employeeType)
     {
         //
     }
@@ -50,7 +50,7 @@ class EmpolyeeTypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, EmpolyeeType $empolyeeType)
+    public function update(Request $request, EmployeeType $employeeType)
     {
         //
     }
@@ -58,7 +58,7 @@ class EmpolyeeTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(EmpolyeeType $empolyeeType)
+    public function destroy(EmployeeType $employeeType)
     {
         //
     }

@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('empolyees', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string('employee_name',100);
             $table->bigInteger('mobile');
             $table->string('email',50);
-            $table->foreignId('empolyee_type_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('employee_type_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('empolyees');
+        Schema::dropIfExists('employees');
     }
 };
