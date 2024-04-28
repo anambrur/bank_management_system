@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
+    function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }

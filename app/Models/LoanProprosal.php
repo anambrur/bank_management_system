@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class LoanProprosal extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
+    function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+    function loanType()
+    {
+        return $this->belongsTo(LoanType::class);
+    }
 }
