@@ -39,4 +39,8 @@ class Customer extends Model
     {
         return $this->hasMany(Withdrawal::class);
     }
+    function cashDeposit()
+    {
+        return $this->hasMany(cashDeposit::class);
+    }
 }
