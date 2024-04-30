@@ -13,7 +13,6 @@ class AccountTypeController extends Controller
     public function index()
     {
         $AccountType = AccountType::get();
-        // dd($data);
         return response()->json(['status' => 200, 'data' => $AccountType, 'message' => 'Account Type Return fetched successfully']);
     }
 
@@ -30,7 +29,7 @@ class AccountTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
