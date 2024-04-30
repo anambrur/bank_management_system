@@ -17,8 +17,6 @@ class AccountTypeController extends Controller
     {
         // $AccountType = AccountType::with('customer')->get();
         $AccountType = AccountType::get();
-        return response()->json(['status' => 200, 'data' => $AccountType, 'message' => 'Account Type Return fetched successfully']);
-
         // return response()->json(['status' => 200, 'data' => $AccountType, 'message' => 'Account Type Return fetched successfully']);
         return $this->sendResponse($AccountType,'Account Type Return fetched successfully');
 
