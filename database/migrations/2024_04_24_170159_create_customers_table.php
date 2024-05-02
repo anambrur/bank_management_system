@@ -19,12 +19,13 @@ return new class extends Migration
             $table->string('address',100);
             $table->string('photo',100);
             $table->bigInteger('nid_number');
-            $table->date('date_of_birth',50);
+            $table->date('date_of_birth');
             $table->string('nominee_name',100);
             $table->bigInteger('nominee_mobile');
             $table->bigInteger('nominee_nid_number');
             $table->string('document',100);
             $table->foreignId('account_type_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('password',200);
             $table->timestamps();
         });
     }
