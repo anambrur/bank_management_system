@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\AccountTypeController;
+
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeTypeController;
 use App\Http\Controllers\ExpenseCategoryController;
 use App\Http\Controllers\ExpenseController;
+
+use App\Http\Controllers\CustomerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +21,5 @@ Route::resource('expensecategory',ExpenseCategoryController::class)->names('expe
 Route::resource('expense',ExpenseController::class)->names('expense');
 Route::resource('employeeType',EmployeeTypeController::class)->names('employeeType');
 Route::resource('employee',EmployeeController::class)->names('employee');
+Route::resource('customer',CustomerController::class)->names('customer');
+
