@@ -25,6 +25,7 @@ return new class extends Migration
             $table->bigInteger('nominee_nid_number');
             $table->string('document',100);
             $table->foreignId('account_type_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('password',200);
             $table->timestamps();
         });
     }
