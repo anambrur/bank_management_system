@@ -1,18 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Validator;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
+    use ApiResponse;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $employee = Employee::orderBy('id','desc')->with('employeeType')->get();
+        return $this->sendResponse($employee,'Employee  Return fetched successfully');
     }
 
     /**
@@ -28,7 +31,19 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'employee_name' => 'required',
+            'mobile' => 'required',
+            'email' => 'required',
+            'employee_type_id' => 'required',
+            
+        ]);
+        if ($validator->fails()) {
+            return $this->sendError('Validation Error.', $validator->errors(), 422);
+        }
+        $input = $request->all();
+        $employee = Employee::create($input);
+        return $this->sendResponse($employee, 'Employee created successfully!');
     }
 
     /**
@@ -36,7 +51,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+       
     }
 
     /**
@@ -58,8 +73,9 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Employee $employee)
+    public function destroy(string $id)
     {
-        //
+        $employee = Employee::find($id)->delete();
+        return $this->sendResponse($employee,'Employee  deleted successfully');
     }
 }
