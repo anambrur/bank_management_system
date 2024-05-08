@@ -7992,6 +7992,18 @@
         },
         {
             "name": "spatie/laravel-ignition",
+<<<<<<< HEAD
+            "version": "2.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-ignition.git",
+                "reference": "42d986f4ab9d667020264a7481190a4606ebbeb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/42d986f4ab9d667020264a7481190a4606ebbeb0",
+                "reference": "42d986f4ab9d667020264a7481190a4606ebbeb0",
+=======
             "version": "2.7.0",
             "source": {
                 "type": "git",
@@ -8002,6 +8014,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/f52124d50122611e8a40f628cef5c19ff6cc5b57",
                 "reference": "f52124d50122611e8a40f628cef5c19ff6cc5b57",
+>>>>>>> ec3260e400d1f00201fe648ef0305b4637e16956
                 "shasum": ""
             },
             "require": {
@@ -8010,7 +8023,11 @@
                 "ext-mbstring": "*",
                 "illuminate/support": "^10.0|^11.0",
                 "php": "^8.1",
+<<<<<<< HEAD
+                "spatie/flare-client-php": "^1.3.5",
+=======
                 "spatie/flare-client-php": "^1.5",
+>>>>>>> ec3260e400d1f00201fe648ef0305b4637e16956
                 "spatie/ignition": "^1.14",
                 "symfony/console": "^6.2.3|^7.0",
                 "symfony/var-dumper": "^6.2.3|^7.0"
@@ -8080,7 +8097,11 @@
                     "type": "github"
                 }
             ],
+<<<<<<< HEAD
+            "time": "2024-04-30T13:56:21+00:00"
+=======
             "time": "2024-05-02T13:42:49+00:00"
+>>>>>>> ec3260e400d1f00201fe648ef0305b4637e16956
         },
         {
             "name": "symfony/yaml",
