@@ -14,7 +14,7 @@ class EmployeeTypeController extends Controller
      */
     public function index()
     {
-        $employeeType = EmployeeType::get();
+        $employeeType = EmployeeType::orderBy('id','desc')->get();
         return $this->sendResponse($employeeType,'Employee Type Return fetched successfully');
     }
 

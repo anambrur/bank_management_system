@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountTypeController;
 
+use App\Http\Controllers\BranchController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeTypeController;
 use App\Http\Controllers\ExpenseCategoryController;
@@ -21,5 +22,6 @@ Route::resource('expensecategory',ExpenseCategoryController::class)->names('expe
 Route::resource('expense',ExpenseController::class)->names('expense');
 Route::resource('employeeType',EmployeeTypeController::class)->names('employeeType');
 Route::resource('employee',EmployeeController::class)->names('employee');
+Route::resource('branch',BranchController::class)->names('branch');
 Route::resource('customer',CustomerController::class)->names('customer');
 

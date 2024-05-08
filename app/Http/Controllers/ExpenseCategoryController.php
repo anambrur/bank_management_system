@@ -14,7 +14,7 @@ class ExpenseCategoryController extends Controller
      */
     public function index()
     {
-        $expensecategory = ExpenseCategory::get();
+        $expensecategory = ExpenseCategory::orderBy('id','desc')->get();
         return $this->sendResponse($expensecategory,'Expense Category Return fetched successfully');
     }
 
