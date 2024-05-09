@@ -49,25 +49,39 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Employee $employee)
+    public function show(string $id)
     {
-       
+        $employee = Employee::with('employeeType')->find($id);
+        return $this->sendResponse($employee,'Employee  Return fetched successfully');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Employee $employee)
+    public function edit(string $id)
     {
-        //
+        $employee = Employee::with('employeeType')->find($id);
+        return $this->sendResponse($employee,'Employee  Return fetched successfully');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request, string $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'employee_name' => 'required',
+            'mobile' => 'required',
+            'email' => 'required',
+            'employee_type_id' => 'required',
+            
+        ]);
+        if ($validator->fails()) {
+            return $this->sendError('Validation Error.', $validator->errors(), 422);
+        }
+        $input = $request->all();
+        $employee = Employee::find($id)->update($input);
+        return $this->sendResponse($employee, 'Employee  created successfully!');
     }
 
     /**
