@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('loan_proprosals', function (Blueprint $table) {
+        Schema::create('loan_proposals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('loan_type_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();

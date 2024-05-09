@@ -14,7 +14,7 @@ class LoanController extends Controller
      */
     public function index()
     {
-        $Loan = Loan::orderBy('id','desc')->with('loanType')->get();
+        $Loan = Loan::orderBy('id','desc')->with('customer','loanType','loanProposal')->get();
         // dd($Loan);
         return $this->sendResponse($Loan,'Loan Return Fetched Successfully');
     }
@@ -35,7 +35,7 @@ class LoanController extends Controller
         $validator = Validator::make($request->all(), [
             'customer_id' => 'required',
             'loan_type_id' => 'required',
-            'loan_proprosal_id' =>'required',
+            'loan_proposal_id' =>'required',
             'amount' => 'required',
             'date' => 'required' 
             
@@ -73,7 +73,7 @@ class LoanController extends Controller
         $validator = Validator::make($request->all(), [
             'customer_id' => 'required',
             'loan_type_id' => 'required',
-            'loan_proprosal_id' =>'required',
+            'loan_proposal_id' =>'required',
             'amount' => 'required',
             'date' => 'required' 
             
