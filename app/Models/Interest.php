@@ -14,4 +14,9 @@ class Interest extends Model
     {
         return $this->hasMany(Deposit::class);
     }
+
+    function accountType()
+    {
+        return $this->belongsTo(AccountType::class);
+    }
 }

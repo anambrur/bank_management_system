@@ -19,4 +19,9 @@ class AccountType extends Model
         return $this->hasMany(Customer::class);
     }
 
+    function interest()
+    {
+        return $this->hasMany(Interest::class);
+    }
+
 }
