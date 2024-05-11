@@ -19,6 +19,14 @@ class Customer extends Model
     {
         return $this->belongsTo(AccountType::class);
     }
+    function card()
+    {
+        return $this->hasMany(Card::class);
+    }
+    function cardType()
+    {
+        return $this->belongsTo(CardType::class);
+    }
 
     function loan()
     {

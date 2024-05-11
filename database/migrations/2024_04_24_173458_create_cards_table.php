@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
-            $table->string('name',100);
-            $table->bigInteger('card_number');
+            
             $table->foreignId('customer_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('card_type_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->bigInteger('card_number');
             $table->timestamps();
         });
     }
