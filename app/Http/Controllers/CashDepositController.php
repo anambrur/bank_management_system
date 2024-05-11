@@ -3,16 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\CashDeposit;
+use App\Models\Deposit;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CashDepositController extends Controller
 {
+    use ApiResponse;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $cashDeposit = CashDeposit::with('customer')->get();
+        return $this->sendResponse($cashDeposit, 'CashDeposit Return fetched successfully');
     }
 
     /**
@@ -28,7 +33,19 @@ class CashDepositController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'customer_id' => 'required',
+            'amount' => 'required',
+            'date' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendError('validation Error.', $validator->errors(), 422);
+        }
+
+        $input = $request->all();
+        $cashDeposit = CashDeposit::create($input);
+        return $this->sendResponse($cashDeposit, 'CashDeposit created successfully');
     }
 
     /**
@@ -42,24 +59,36 @@ class CashDepositController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CashDeposit $cashDeposit)
+    public function edit(string $id)
     {
-        //
+        $deposit = Deposit::with('customer')->find($id);
+        return $this->sendResponse($deposit, 'Cash Deposit Edit fetched successfully');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CashDeposit $cashDeposit)
+    public function update(Request $request, string $id)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'customer_id' => 'required',
+            'amount' => 'required',
+            'date' => 'required'
+        ]);
+        if($validator->fails()) {
+            return $this->sendError('validation Error.', $validator->errors(), 422);
+        }
+        $input = $request->all();
+        $deposit = Deposit::find($id)->update($input);
+        return $this->sendResponse($deposit, 'Payment Update successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CashDeposit $cashDeposit)
+    public function destroy(string $id)
     {
-        //
+        $cashDeposit = CashDeposit::find($id)->delete();
+        return $this->sendResponse($cashDeposit, 'CashDeposit Delete successfully');
     }
 }

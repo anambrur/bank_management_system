@@ -12,7 +12,7 @@ class CustomerController extends Controller
 {
     use ApiResponse;
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource. 
      */
     public function index()
     {
