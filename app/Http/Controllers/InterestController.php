@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 class InterestController extends Controller
 {
+    use ApiResponse;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $Interest = Interest::get();
+        return $this->sendResponse($Interest,'Interest Return Fetched Successfully');
     }
 
     /**

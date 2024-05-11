@@ -17,4 +17,8 @@ class LoanProprosal extends Model
     {
         return $this->belongsTo(LoanType::class);
     }
+    function loan()
+    {
+        return $this->hasMany(Loan::class);
+    }
 }
