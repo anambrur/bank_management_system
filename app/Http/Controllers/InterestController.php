@@ -16,6 +16,10 @@ class InterestController extends Controller
     {
         $interest = Interest::with('accountType')->get();
         return $this->sendResponse($interest, 'Interest Return fetched successfully');
+
+        $Interest = Interest::get();
+        return $this->sendResponse($Interest,'Interest Return Fetched Successfully');
+
     }
 
     /**
